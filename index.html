@@ -1,108 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welcome to Loop Aura Farmer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loop Aura Farmer - Welcome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
       font-family: 'Nunito', sans-serif;
       background: linear-gradient(135deg, #FFE6BC, #FFDEE9);
       height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      overflow: hidden;
+      position: relative;
     }
 
-    .container {
-      background: #ffffff;
-      border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      padding: 40px;
+    .polaroid {
+      background: white;
+      padding: 40px 30px 60px;
+      border-radius: 12px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
       text-align: center;
-      max-width: 400px;
-      width: 100%;
-      animation: fadeIn 0.8s ease-out;
+      width: 320px;
+      border: 6px solid #fff;
+      position: relative;
+      z-index: 5;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .app-name {
-      font-size: 20px;
-      font-weight: 700;
+    .app-title {
+      font-size: 18px;
       color: #FF8C42;
-      letter-spacing: 0.8px;
-      margin-bottom: 12px;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
 
-    .welcome-text {
+    .headline {
       font-size: 28px;
-      font-weight: bold;
+      font-weight: 800;
       color: #333;
       margin-bottom: 10px;
     }
 
-    .subtitle {
-      font-size: 16px;
-      color: #666;
+    .message {
+      font-size: 15px;
+      color: #555;
       margin-bottom: 20px;
     }
 
     .cta-button {
       background: #FF8C42;
-      color: #fff;
+      color: white;
+      font-weight: bold;
+      padding: 12px 26px;
       border: none;
-      border-radius: 30px;
-      padding: 12px 28px;
+      border-radius: 25px;
       font-size: 16px;
-      font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .cta-button:hover {
-      background: #ff7a2a;
+      background: #f5772e;
     }
 
-    .footer-note {
+    .footer {
       font-size: 13px;
-      color: #999;
-      margin-top: 25px;
+      color: #888;
+      margin-top: 28px;
     }
 
+    /* Stickers */
+    .sticker {
+      position: absolute;
+      font-size: 40px;
+      opacity: 0.15;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .s1 {
+      top: 10%;
+      left: 8%;
+      transform: rotate(-15deg);
+    }
+
+    .s2 {
+      top: 20%;
+      right: 10%;
+      transform: rotate(10deg);
+    }
+
+    .s3 {
+      bottom: 10%;
+      left: 12%;
+      transform: rotate(5deg);
+    }
+
+    .s4 {
+      bottom: 12%;
+      right: 12%;
+      transform: rotate(-10deg);
+    }
+
+    .s5 {
+      top: 50%;
+      left: -5%;
+      transform: rotate(30deg);
+    }
+
+    .s6 {
+      bottom: 50%;
+      right: -5%;
+      transform: rotate(-25deg);
+    }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="app-name">Loop Aura Farmer</div>
-    <div class="welcome-text">Welcome!</div>
-    <div class="subtitle">Your email has been verified successfully.</div>
+
+  <!-- Background stickers -->
+  <div class="sticker s1">🌱</div>
+  <div class="sticker s2">🍊</div>
+  <div class="sticker s3">✨</div>
+  <div class="sticker s4">☁️</div>
+  <div class="sticker s5">🌞</div>
+  <div class="sticker s6">🌼</div>
+
+  <!-- Polaroid Card -->
+  <div class="polaroid">
+    <div class="app-title">Loop Aura Farmer</div>
+    <div class="headline">Welcome!</div>
+    <div class="message">Your email has been verified successfully.</div>
     <button class="cta-button" onclick="startJourney()">Start Your Journey</button>
-    <div class="footer-note">A calm space to grow your vibe 🌿</div>
+    <div class="footer">A calm space to grow your vibe 🌿</div>
   </div>
 
   <script>
     function startJourney() {
-      alert("Redirecting to the app...");
+      // Replace with your dashboard link if needed
+      alert('Redirecting to your aura dashboard...');
       // window.location.href = "/dashboard";
     }
   </script>
+
 </body>
+
 </html>
