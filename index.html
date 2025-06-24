@@ -1,13 +1,506 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="0; URL='exp://192.168.86.23:8081?confirm=1'" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Loop Aura Famer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+      padding: 0;
+      margin: 0;
+    }
+
+    .background-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    .floating-orb {
+      position: absolute;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 70%);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .orb1 {
+      width: 80px;
+      height: 80px;
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .orb2 {
+      width: 120px;
+      height: 120px;
+      top: 60%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+
+    .orb3 {
+      width: 60px;
+      height: 60px;
+      bottom: 20%;
+      left: 20%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+      }
+    }
+
+    .welcome-container {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
+      border-radius: 30px;
+      padding: 60px 50px;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      max-width: 600px;
+      width: 90%;
+      position: relative;
+      z-index: 10;
+      animation: slideUp 1s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo-container {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      animation: pulse 2s infinite;
+      box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .checkmark {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 40px;
+      height: 40px;
+      background: #4CAF50;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      animation: bounceIn 0.8s ease-out 0.5s both;
+      box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .app-name {
+      font-size: 36px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      letter-spacing: 2px;
+    }
+
+    .welcome-text {
+      font-size: 28px;
+      color: white;
+      margin-bottom: 20px;
+      font-weight: 300;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 40px;
+      line-height: 1.6;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-button {
+      background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+      color: white;
+      padding: 18px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(255, 107, 107, 0.4);
+    }
+
+    .features {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .feature {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      flex: 1;
+      min-width: 150px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .feature-text {
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      animation: sparkle 3s linear infinite;
+    }
+
+    @keyframes sparkle {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 20px;
+      }
+
+      .welcome-container {
+        padding: 40px 25px;
+        border-radius: 25px;
+        max-width: 100%;
+      }
+
+      .logo {
+        width: 80px;
+        height: 80px;
+        font-size: 36px;
+      }
+
+      .checkmark {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        top: -8px;
+        right: -8px;
+      }
+
+      .app-name {
+        font-size: 24px;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+      }
+
+      .welcome-text {
+        font-size: 22px;
+        margin-bottom: 15px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+        margin-bottom: 35px;
+        padding: 0 10px;
+      }
+
+      .cta-button {
+        padding: 16px 35px;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .features {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .feature {
+        padding: 18px 15px;
+        border-radius: 12px;
+      }
+
+      .feature-icon {
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
+
+      .feature-text {
+        font-size: 13px;
+      }
+
+      .floating-orb {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .welcome-container {
+        padding: 30px 20px;
+        margin: 10px;
+      }
+
+      .logo {
+        width: 70px;
+        height: 70px;
+        font-size: 32px;
+      }
+
+      .app-name {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .welcome-text {
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        margin-bottom: 25px;
+      }
+
+      .cta-button {
+        padding: 14px 30px;
+        font-size: 15px;
+      }
+
+      .features {
+        margin-top: 25px;
+      }
+
+      .feature {
+        padding: 15px 12px;
+      }
+
+      .feature-icon {
+        font-size: 20px;
+      }
+
+      .feature-text {
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <p>Redirecting to the app...</p>
+  <div class="background-animation">
+    <div class="floating-orb orb1"></div>
+    <div class="floating-orb orb2"></div>
+    <div class="floating-orb orb3"></div>
+  </div>
+
+  <div class="particles" id="particles"></div>
+
+  <div class="welcome-container">
+    <div class="logo-container">
+      <div class="logo">🌟</div>
+      <div class="checkmark">✓</div>
+    </div>
+
+    <h1 class="app-name">LOOP AURA FAMER</h1>
+    <h2 class="welcome-text">Welcome!</h2>
+    <p class="subtitle">Your email has been verified successfully.<br>
+      Ready to enjoy your stay in the loop?</p>
+
+    <a href="#" class="cta-button" onclick="startApp()">Enter the Loop</a>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🌱</div>
+        <div class="feature-text">Farm Your Aura</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔄</div>
+        <div class="feature-text">Stay in the Loop</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">✨</div>
+        <div class="feature-text">Grow Your Energy</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Create floating particles
+    function createParticle() {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.width = particle.style.height = Math.random() * 4 + 2 + 'px';
+      particle.style.animationDuration = Math.random() * 3 + 2 + 's';
+      particle.style.animationDelay = Math.random() * 2 + 's';
+
+      document.getElementById('particles').appendChild(particle);
+
+      setTimeout(() => {
+        particle.remove();
+      }, 5000);
+    }
+
+    // Create particles periodically
+    setInterval(createParticle, 300);
+
+    // Button click handler
+    function startApp() {
+      // Add a celebratory effect
+      const container = document.querySelector('.welcome-container');
+      container.style.transform = 'scale(0.95)';
+      container.style.transition = 'transform 0.2s ease';
+
+      setTimeout(() => {
+        container.style.transform = 'scale(1)';
+        // Here you would redirect to your app
+        // window.location.href = 'your-app-url';
+        alert('Welcome to Loop Aura Famer! 🎉');
+      }, 200);
+    }
+
+    // Add some interactive hover effects (only on non-touch devices)
+    if (!('ontouchstart' in window)) {
+      document.addEventListener('mousemove', (e) => {
+        const orbs = document.querySelectorAll('.floating-orb');
+        orbs.forEach((orb, index) => {
+          const speed = (index + 1) * 0.02;
+          const x = (e.clientX - window.innerWidth / 2) * speed;
+          const y = (e.clientY - window.innerHeight / 2) * speed;
+          orb.style.transform = `translate(${x}px, ${y}px)`;
+        });
+      });
+    }
+  </script>
 </body>
 
 </html>
