@@ -4,7 +4,6 @@ description: Full-Stack & AI/ML Engineer – 4× Dean’s List, University of Wi
 url: https://harshithreddy.dev
 image: ./assets/og-image.png
 favicon: ./assets/favicon.ico
-google_analytics: G-XXXXXXXXXX
 ---
 
 &lt;div align="center"&gt;
